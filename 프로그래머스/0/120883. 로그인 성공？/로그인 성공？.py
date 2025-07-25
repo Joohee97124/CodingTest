@@ -6,5 +6,6 @@ def solution(id_pw, db):
             answer = 'wrong pw'
             if id_pw[1] == b[1]:
                 answer = 'login'
+                break
                 
     return answer
