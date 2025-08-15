@@ -1,15 +1,7 @@
 def solution(emergency):
-    '''
-    answer = []
-    dic = {}
-    for i,emer in enumerate(emergency):
-        dic[i] = emer
-    sor = sorted(dic.values(), reverse=True)
-
-    for emer in emergency:
-        answer.append(sor.index(emer)+1)
-    '''
+    answer = [0] * len(emergency)
+    tmp = sorted(emergency, reverse=True)
     
-    sor = sorted(emergency, reverse=True) 
-    #nswer = [sor.index(emer)+1 for emer in emergency]
-    return [sor.index(emer)+1 for emer in emergency]
+    for i,t in enumerate(tmp):
+        answer[emergency.index(t)] = (i+1)
+    return answer
