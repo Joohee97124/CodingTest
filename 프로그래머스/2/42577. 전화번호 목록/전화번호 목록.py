@@ -1,7 +1,11 @@
 def solution(phone_book):
-    phone_book.sort()
+    hashmap = {pb:True for pb in phone_book}
     
-    for i in range(len(phone_book)-1):
-        if phone_book[i+1].startswith(phone_book[i]):
-            return False
+    for pb in phone_book:
+        prefix=''
+        for n in pb:
+            prefix += n
+            if prefix in hashmap and prefix!=pb:
+                return False
+    
     return True
