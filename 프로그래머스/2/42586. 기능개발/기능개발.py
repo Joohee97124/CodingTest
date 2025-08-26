@@ -8,15 +8,11 @@ def solution(progresses, speeds):
     count = 0 #배포수
     for d in day:
         if d <= tmp:
-            print(d)
             count += 1
-            print('count', count)
         else:
             answer.append(count)
             count = 1
-            print('answer', answer)
             tmp = d
-        print(d,' , ', tmp)
     
     answer.append(count)
     return answer
