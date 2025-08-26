@@ -5,8 +5,10 @@ def solution(s):
         if i=="(":
             one += 1
         else:
-            if one>0: one-=1
-            else: return False
+            if one>0: 
+                one-=1
+            else: 
+                return False
     
     if one > 0 :
         return False
