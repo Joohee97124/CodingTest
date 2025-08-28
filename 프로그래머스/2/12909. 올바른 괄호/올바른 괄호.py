@@ -1,16 +1,15 @@
 def solution(s):
-    one = 0
-    
+    count = 0
     for i in s:
-        if i=="(":
-            one += 1
-        else:
-            if one>0: 
-                one-=1
-            else: 
-                return False
+        if i=='(':
+            count += 1
+        elif i==')' and count <=0 :
+            return False
+        elif i==')' and count > 0 :
+            count -= 1
     
-    if one > 0 :
+    if count ==0 and s[0]=='(':
+        return True
+    else:
         return False
-    return True
     
