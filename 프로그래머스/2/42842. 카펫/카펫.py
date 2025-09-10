@@ -7,10 +7,9 @@ def solution(brown, yellow):
         if total%i == 0:
             tmp.append([i,total//i])
     
-    print(tmp)
     for a,b in tmp:
         if (a-2)*(b-2)==yellow:
             answer.extend([b,a])
+            break
             
-    
     return answer
