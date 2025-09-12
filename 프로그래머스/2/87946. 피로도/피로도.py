@@ -1,15 +1,16 @@
-from itertools import permutations
 def solution(k, dungeons):
-    answer = 0
-    orders = permutations(dungeons,len(dungeons))
+    answer = -1
     
-    for order in orders:
-        tmp, stemina = 0, k
-        for a,b in order:
-            if a <= stemina:
-                tmp += 1
-                stemina -= b
-            else:
-                break
-        answer = max(answer, tmp)     
+    def dfs(k,visited,count):
+        nonlocal answer
+        answer = max(answer,count)
+        
+        for i in range(len(dungeons)):
+            need,cost = dungeons[i]
+            if not visited[i] and need <= k:
+                visited[i] = True
+                dfs(k-cost, visited, count+1)
+                visited[i] = False
+    
+    dfs(k,[False]*len(dungeons), 0)
     return answer
