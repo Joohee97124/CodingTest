@@ -1,11 +1,14 @@
 def solution(participant, completion):
-    person = {}
-    for part in participant :
-        person[part] = person.get(part,0) +1
+    par = {}
+    
+    for p in participant:
+        par[p] = par.get(p,0)+1
     
     for com in completion:
-        person[com] -= 1
+        if com in par:
+            par[com] -= 1
     
-    for k,v in person.items():
-        if v > 0 :
+    for k,v in par.items():
+        if v>0:
             return k
+    
