@@ -14,3 +14,4 @@ def solution(n):
         
             
     return answer+1
+# 1 3 5 15
