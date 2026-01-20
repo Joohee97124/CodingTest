@@ -1,17 +1,11 @@
+from collections import deque
 def solution(people, limit):
     answer = 0
-    people.sort(reverse=True)
+    people = deque(sorted(people))
     
-    point1 = 0
-    point2 = len(people)-1
-    
-    while True:
-        if point1 > point2 :
-            break
-        if people[point1] + people[point2] <= limit:
-            point2 -= 1
+    while people:
         answer += 1
-        point1 += 1
-            
-    
+        if len(people) > 1 and people[0] + people[-1] <= limit:
+            people.popleft()
+        people.pop()
     return answer
