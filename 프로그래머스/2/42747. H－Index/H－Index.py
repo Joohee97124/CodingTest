@@ -1,12 +1,9 @@
 def solution(citations):
-    citations.sort(reverse=True)
+    l = len(citations)
+    citations.sort()
+    print(citations)
     
-    for i,c in enumerate(citations):
-        if (i+1) > c:
-            return i
-    
-    return len(citations)
-'''
-입력값 〉 [5, 6, 7, 8]
-기댓값 〉 4
-'''
+    for i in range(l):
+        if citations[i] >= l-i:
+            return l-i
+    return 0
